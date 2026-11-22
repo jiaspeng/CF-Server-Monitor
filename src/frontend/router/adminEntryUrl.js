@@ -20,8 +20,7 @@ const ADMIN_HASH = '#/admin'
 const ADMIN_HASH_QUERY = /^#\/?admin(\?.*)?$/
 
 // 私有站跳转、主题入口共用的标准后台地址
-export const ADMIN_ENTRY_URL = `${ADMIN_PATH}${ADMIN_HASH}`
-
+export const ADMIN_ENTRY_URL = '/admin'
 export const isAdminPath = (pathname) => {
   const path = pathname ?? (typeof window !== 'undefined' ? window.location.pathname : '')
   return path === ADMIN_PATH || path.startsWith(`${ADMIN_PATH}/`)
