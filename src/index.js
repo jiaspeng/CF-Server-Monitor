@@ -200,15 +200,12 @@ export default {
       return createOptionsResponse(request, corsAllowedOrigins);
     }
 
-    if (method === 'GET' && path === '/admin/') {
-      const target = new URL(request.url);
-      const search = target.search;
-      target.pathname = '/admin';
-      target.search = '';
-      // 与前端入口地址统一为 #/admin 形式；旧式 #admin 由前端归一化兼容
-      target.hash = `/admin${search}`;
-      return Response.redirect(target.toString(), 302);
-    }
+if (method === 'GET' && path === '/admin/') {
+  const target = new URL(request.url);
+  target.pathname = '/admin';
+  target.hash = '';
+  return Response.redirect(target.toString(), 302);
+}
 
     if (method === 'GET' && path.startsWith('/assets/')) {
       try {
