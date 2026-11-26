@@ -1,0 +1,266 @@
+/* Modern, restrained admin UI. Scoped to the built-in admin route. */
+body:has(#admin-content) {
+  --admin-accent: #2563eb;
+  --admin-accent-soft: rgba(37, 99, 235, .12);
+  --admin-radius: 12px;
+  --admin-border: rgba(148, 163, 184, .22);
+  --admin-shadow: 0 8px 28px rgba(15, 23, 42, .08);
+}
+body:has(#admin-content) #admin-content {
+  width: min(1440px, calc(100% - 40px));
+  max-width: 1440px;
+  margin: 28px auto 56px;
+  color: var(--text-primary);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  letter-spacing: 0;
+}
+body:has(#admin-content) #admin-content .main-panel {
+  background: var(--bg-secondary);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius);
+  box-shadow: var(--admin-shadow);
+  padding: 22px;
+  margin: 0 0 18px;
+  overflow: hidden;
+}
+body:has(#admin-content) #admin-content .panel-header {
+  align-items: center;
+  margin-bottom: 20px;
+}
+body:has(#admin-content) #admin-content .panel-title {
+  color: var(--text-primary);
+  font-size: 17px;
+  font-weight: 650;
+  letter-spacing: -.025em;
+  text-shadow: none;
+}
+body:has(#admin-content) #admin-content .panel-title .prompt {
+  color: var(--admin-accent);
+}
+body:has(#admin-content) #admin-content .header-actions {
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+body:has(#admin-content) #admin-content .stats-grid {
+  gap: 12px;
+  margin: 0;
+}
+body:has(#admin-content) #admin-content .stat-card {
+  min-height: 104px;
+  padding: 17px 18px;
+  border: 1px solid var(--admin-border);
+  border-radius: 10px;
+  background: var(--bg-primary);
+  box-shadow: none;
+  transition: border-color .18s ease, transform .18s ease;
+}
+body:has(#admin-content) #admin-content .stat-card:hover {
+  border-color: rgba(37, 99, 235, .42);
+  transform: translateY(-1px);
+}
+body:has(#admin-content) #admin-content .stat-main-value {
+  font-family: inherit;
+  font-size: clamp(24px, 3vw, 30px);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -.04em;
+  text-shadow: none;
+}
+body:has(#admin-content) #admin-content .stat-label {
+  margin-top: 7px;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 12px;
+  letter-spacing: 0;
+}
+body:has(#admin-content) #admin-content .tabs {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+  margin: -2px 0 20px;
+  border: 1px solid var(--admin-border);
+  border-radius: 10px;
+  background: var(--bg-primary);
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+body:has(#admin-content) #admin-content .tab-btn {
+  position: relative;
+  flex: 0 0 auto;
+  min-height: 38px;
+  padding: 8px 15px;
+  border: 0;
+  border-radius: 7px;
+  color: var(--text-secondary);
+  background: transparent;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 550;
+  letter-spacing: 0;
+  transition: color .16s ease, background .16s ease;
+}
+body:has(#admin-content) #admin-content .tab-btn::before { display: none; }
+body:has(#admin-content) #admin-content .tab-btn:hover {
+  color: var(--text-primary);
+  background: var(--admin-accent-soft);
+}
+body:has(#admin-content) #admin-content .tab-btn.active {
+  color: #fff;
+  background: var(--admin-accent);
+  box-shadow: 0 2px 7px rgba(37, 99, 235, .2);
+}
+body:has(#admin-content) #admin-content .btn,
+body:has(#admin-content) #admin-content button.btn {
+  min-height: 36px;
+  padding: 8px 13px;
+  border: 1px solid var(--admin-border);
+  border-radius: 8px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  box-shadow: none;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 550;
+  letter-spacing: 0;
+  text-shadow: none;
+  transition: background .16s ease, border-color .16s ease, transform .16s ease;
+}
+body:has(#admin-content) #admin-content .btn:hover {
+  border-color: rgba(37, 99, 235, .45);
+  background: var(--admin-accent-soft);
+  transform: translateY(-1px);
+}
+body:has(#admin-content) #admin-content .btn-primary {
+  border-color: var(--admin-accent);
+  background: var(--admin-accent);
+  color: #fff;
+}
+body:has(#admin-content) #admin-content .btn-primary:hover {
+  border-color: #1d4ed8;
+  background: #1d4ed8;
+}
+body:has(#admin-content) #admin-content .btn-red {
+  border-color: rgba(239, 68, 68, .25);
+  color: #ef4444;
+  background: rgba(239, 68, 68, .07);
+}
+body:has(#admin-content) #admin-content .form-input,
+body:has(#admin-content) #admin-content .form-select,
+body:has(#admin-content) #admin-content .toolbar-input,
+body:has(#admin-content) #admin-content textarea {
+  min-height: 38px;
+  border: 1px solid var(--admin-border);
+  border-radius: 8px;
+  background: var(--bg-primary) !important;
+  color: var(--text-primary);
+  box-shadow: none;
+  font-family: inherit;
+  font-size: 13px;
+  letter-spacing: 0;
+}
+body:has(#admin-content) #admin-content .form-input:focus,
+body:has(#admin-content) #admin-content .form-select:focus,
+body:has(#admin-content) #admin-content .toolbar-input:focus,
+body:has(#admin-content) #admin-content textarea:focus {
+  outline: none;
+  border-color: var(--admin-accent);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, .12);
+}
+body:has(#admin-content) #admin-content .toolbar {
+  gap: 8px;
+  margin-bottom: 14px;
+}
+body:has(#admin-content) #admin-content .toolbar-input {
+  width: min(300px, 100%);
+  padding: 8px 11px;
+}
+body:has(#admin-content) #admin-content .table-wrapper {
+  border: 1px solid var(--admin-border);
+  border-radius: 10px;
+  overflow: auto;
+}
+body:has(#admin-content) #admin-content .terminal-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: inherit;
+  font-size: 13px;
+}
+body:has(#admin-content) #admin-content .terminal-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 12px 13px;
+  color: var(--text-muted);
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--admin-border);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: .045em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+body:has(#admin-content) #admin-content .terminal-table tbody td {
+  padding: 12px 13px;
+  border-bottom: 1px solid var(--admin-border);
+  vertical-align: middle;
+}
+body:has(#admin-content) #admin-content .terminal-table tbody tr:last-child td { border-bottom: 0; }
+body:has(#admin-content) #admin-content .terminal-table tbody tr:hover td {
+  background: var(--admin-accent-soft);
+}
+body:has(#admin-content) #admin-content .modal-dialog {
+  border: 1px solid var(--admin-border);
+  border-radius: 14px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .24);
+  overflow: hidden;
+}
+body:has(#admin-content) #admin-content .modal-header,
+body:has(#admin-content) #admin-content .modal-footer {
+  border-color: var(--admin-border);
+}
+body:has(#admin-content) #admin-content .modal-title {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 650;
+}
+body:has(#admin-content) #admin-content .admin-site-select { max-width: 340px; }
+body:has(#admin-content) #admin-content :focus-visible {
+  outline: 2px solid var(--admin-accent);
+  outline-offset: 2px;
+}
+body.light:has(#admin-content) {
+  --admin-border: #e5eaf2;
+  --admin-shadow: 0 5px 20px rgba(15, 23, 42, .045);
+}
+body.light:has(#admin-content) #admin-content .main-panel {
+  background: #fff;
+}
+body.light:has(#admin-content) #admin-content .stat-card,
+body.light:has(#admin-content) #admin-content .tabs {
+  background: #f8fafc;
+}
+@media (max-width: 760px) {
+  body:has(#admin-content) #admin-content {
+    width: calc(100% - 22px);
+    margin: 12px auto 32px;
+  }
+  body:has(#admin-content) #admin-content .main-panel { padding: 14px; margin-bottom: 12px; }
+  body:has(#admin-content) #admin-content .panel-header { align-items: flex-start; }
+  body:has(#admin-content) #admin-content .header-actions { width: 100%; }
+  body:has(#admin-content) #admin-content .admin-site-select { min-width: 0; flex: 1 1 100%; width: 100%; }
+  body:has(#admin-content) #admin-content .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  body:has(#admin-content) #admin-content .stat-card { min-height: 88px; padding: 13px; }
+  body:has(#admin-content) #admin-content .tabs { margin-bottom: 14px; }
+  body:has(#admin-content) #admin-content .tab-btn { padding: 8px 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body:has(#admin-content) #admin-content *,
+  body:has(#admin-content) #admin-content *::before,
+  body:has(#admin-content) #admin-content *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+}
